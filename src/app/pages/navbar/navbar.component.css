@@ -1,0 +1,164 @@
+.sidenav-container {
+    height: 100vh;
+}
+
+.sidenav {
+    width: 200px;
+
+}
+.mat-sidenav , .mat-primary{
+    background-color: #195DA2;
+    
+}
+.white{
+    color: white;
+}
+
+table {
+    width: 100%;
+    position: relative;
+}
+
+.ativos {
+    margin: 350, auto
+}
+
+mat-toolbar{
+      
+        position: sticky;
+        top: 0;
+        z-index: 99;
+        display: flex;
+        justify-content: space-between;
+
+        /* justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-content: center;
+        align-items: flex-start; */
+    }
+
+
+.sidenav .mat-toolbar {
+    background: inherit;
+}
+
+.sair{
+    position: relative;
+    border: none;
+    font-size: 16px;
+    border-radius: 90px;
+    display: flex;
+    justify-content: center;
+
+   
+}
+#sair{
+    height: auto;
+    width: auto;
+    background-color: rgba(255, 255, 255, 99);
+}
+.sair mat-icon:hover{
+    color: red;
+}
+
+#user{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 90%;
+}
+
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+}
+
+#logo {
+    width: 10rem;
+    margin-top: 4rem;
+    padding-top: 3rem;
+}
+
+
+mat-nav-list {
+    margin-top: 8rem;
+}
+
+.menu {
+    display: flex;
+    font-size: 14px;
+    font-weight: 200;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    
+    align-items: center;
+    padding: 0.2rem;
+}
+
+.menu a{
+    text-decoration: none;
+    
+}
+.menu mat-icon{
+    font-size: 14px;
+    height: auto;
+    width: auto;
+    margin-left: 1rem;
+    padding-right: 1rem;
+
+
+}
+.menu mat-icon:hover{
+    font-size: 18px;
+}
+ .menu :hover {
+   
+    font-size: 18px;
+
+} 
+
+
+
+#casa_militar{
+  font-size: 22px;
+  font-weight: 400;
+
+}
+
+.rigth{
+    margin-right: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.formSenha, .formTel, .formMail{
+    background-color: white;
+}
+.top{
+    text-align: center;
+}
+.anchor{
+    display: flex;
+  
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-content: flex-start;
+}
+
+@media (max-width: 600px ) {
+    #user{
+        width: 3rem;
+        height: 3rem;
+        border-radius: 90%;
+    }
+
+    .rigth{
+        margin-right: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 1rem;
+    }
+    
+}

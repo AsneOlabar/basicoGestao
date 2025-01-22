@@ -1,0 +1,39 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<div class="main">
+
+    <div class="rio">
+        <img src="../../../assets/images/rio2030.jpg">
+    </div>
+
+    <div class="header">
+
+    </div>
+    <form [formGroup]="resetForm" class="align-middle page" (ngSubmit)="reset()">
+
+
+        <h1>CASA MILITAR RJ</h1>
+
+        <img src="../../../assets/images/logo.png" id="logoLogin">
+
+           
+            <mat-form-field appearance="outline">
+                <mat-label>Usuário</mat-label>
+                <input matInput placeholder="" formControlName="userName" >
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+
+        
+
+        
+    
+        <button mat-raised-button color="primary" [disabled]="!resetForm.valid" type="submit">enviar</button>
+
+        <a routerLink="/login"><button mat-raised-button color="warn" type="button">voltar</button></a>
+       
+
+    </form>
+</div>
+
+<footer class="center">
+    Divisão de Manutenção de Informática e Telefonia - 2023
+</footer>

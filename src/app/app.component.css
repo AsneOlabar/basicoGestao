@@ -1,0 +1,66 @@
+mat-form-field{
+    padding: 0.5rem;
+  }
+
+
+.scroll{
+  overflow-x: scroll;
+}
+  
+  .btnEditar{
+    background-color: rgb(241, 208, 19);
+    color: white;
+  }
+
+  .primario{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-color: #2E3C5C;
+    text-align: center;
+    margin-top: 3rem;
+    color: white;
+    box-shadow: 1rem;
+  }
+
+  .secundario{
+    
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-color:#6C757D;
+    text-align: center;
+    margin-top: 3rem;
+    color: white;
+    box-shadow: 1rem
+  }
+
+  #count{
+    font-size: 3rem;
+  }
+
+  table{
+    
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+       user-select: none;
+      
+    
+  }
+
+  .titulo{
+    margin-top: 3rem;
+    background-color: #3F51B5;
+    color: white;
+    text-align: center;
+  }
+
+  #filter {
+    border-radius: 5px;
+    width: 20rem;
+    height: 2rem;
+    margin: 1rem;
+}
+
+.pointer{
+  cursor:pointer;
+}

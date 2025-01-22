@@ -1,0 +1,263 @@
+<mat-sidenav-container class="sidenav-container">
+     <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false"> 
+    
+        <mat-toolbar>
+            <a routerLink="/"><img src="../../../assets/images/logo.png" alt="Logo CASA MILITAR RJ" id="logo"></a>
+
+        </mat-toolbar>
+
+        <mat-nav-list>
+            <div *ngFor="let atalho of atalhos" class="menu">
+               
+              <a class="white" [routerLink]="atalho.link">
+                               
+                  <div>
+                    <mat-icon class="white">{{atalho.icone}}</mat-icon>{{atalho.nome.toUpperCase()}}
+                  </div>
+                    
+                </a>
+           
+            </div>
+
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async" class="btn btn-light"> 
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+             </button>
+             <div>
+
+                 <!-- <h1 id="casa_militar">SISTEMA DE GESTÃO</h1> -->
+                </div>
+
+            <div class="rigth">
+
+                <div class="d-flex justify-content-center ">
+
+                    <div class="btn-group">
+
+                        <img type="button" id="user" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" [src]="foto" class="pointer" matTooltip="menu">
+                        
+                        <div class="dropdown-menu top">
+                            <a class="dropdown-item anchor" href="#"  data-toggle="modal" data-target="#modalSenha" > <mat-icon >dialpad</mat-icon> alterar senha</a>
+                            <a class="dropdown-item anchor" href="#" data-toggle="modal" data-target="#modalTel" matTooltip="alterar telefone"><mat-icon>phone</mat-icon> {{ this.user.tel}}</a>
+                            <a class="dropdown-item anchor" href="#" data-toggle="modal" data-target="#modalMail"  matTooltip="alterar e-mail"><mat-icon>mail</mat-icon> {{ this.user.email}}</a>
+                            <div class="dropdown-divider anchor"></div>
+                            <div (click)="logout()" class="pointer sair p-2"><mat-icon class="dropdown-item"  matTooltip="sair" id="sair">power_settings_new</mat-icon></div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+    
+        </mat-toolbar>
+
+
+
+
+
+        <router-outlet>
+        </router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+
+<div class="modal fade" id="modalSenha" tabindex="-1" role="dialog" aria-labelledby="senhaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="d-flex flex-row-reverse">
+                <div class="col-2 p-2">
+                    
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeSenha">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+            </div>
+            
+        <div class="col-md-12">
+          <h3 class="primario d-flex justify-content-center mt-1" id="senhaModalLabel">Alteração de senha</h3>
+        </div>
+        <div class="col-12 ">
+            <form [formGroup]="updateSenhaForm">               
+                       
+                <div class="row d-flex justify-content-center" >
+
+                    
+                        
+                        <mat-form-field appearance="outline" class="formSenha">
+                            <mat-label>senha  atual</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" formControlName="oldPass" >
+                            <i mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </i>
+                            <mat-error class="text-danger">
+                                A senha deve conter: ao menos um número, uma letra minúscula, uma letra maiúscula e um caractere !%$()*&@#
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                
+                <div class="row d-flex justify-content-center">
+
+                    <mat-form-field appearance="outline" class="formSenha">
+                        <mat-label>nova senha</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="newPass" >
+                        <i mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </i>
+                        
+                        
+                    </mat-form-field>
+                    <small *ngIf="updateSenhaForm.controls['newPass'].errors" class="text-danger">
+                        A senha deve conter: ao menos um número, uma letra minúscula,<br>
+                        uma letra maiúscula e um caractere !%$()*&@# e oito caracteres no total.
+                    </small>
+                </div>
+                <div class="row d-flex justify-content-center" >
+
+                    <mat-form-field appearance="outline" class="formSenha">
+                        <mat-label>confirmação da senha</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmPass" >
+                        <i mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </i>
+                       
+                    </mat-form-field>
+                    <small *ngIf="updateSenhaForm.controls['confirmPass'].errors" class="text-danger">
+                        A confirmação deve conter: ao menos um número, uma letra minúscula,<br>
+                        uma letra maiúscula e um caractere !%$()*&@# e oito caracteres no total.
+                    </small>
+                    <br>
+                    <small *ngIf="updateSenhaForm.controls['confirmPass'].value != updateSenhaForm.controls['newPass'].value" class="text-danger">
+                        A confirmação deve ser igual a nova senha! 
+                    </small>
+                </div>
+                    
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="this.updateSenhaForm.reset()">fechar</button>
+                  <button mat-raised-button color="primary" [disabled]="!updateSenhaForm.valid" type="button" (click)="updateSenha()">enviar</button>
+          
+          
+                </div>
+             
+                
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="modalTel" tabindex="-1" role="dialog" aria-labelledby="telModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="d-flex flex-row-reverse">
+            <div class="col-2 p-2">
+                
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeTel">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+        </div>
+        <div class="col-md-12">
+          <h3 class="primario d-flex justify-content-center mt-1" id="telModalLabel">Alteração de tel</h3>
+          
+        </div>
+        <div class="col-12 ">
+            <form [formGroup]="updateTelForm">               
+                       
+                <div class="row d-flex justify-content-center" >
+
+                    
+                        
+                        <mat-form-field appearance="outline" class="formTel">
+                            <mat-label>Senha</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" formControlName="pass" >
+                            <i mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </i>
+                        </mat-form-field>
+                    </div>
+                
+                <div class="row d-flex justify-content-center" >
+
+                    <mat-form-field appearance="outline" class="formTel">
+                        <mat-label>celular</mat-label>
+                        <input matInput type="tel" formControlName="tel" mask="(XX) XXXXX-XXXX ">
+                        
+                    </mat-form-field>
+                </div>
+                <span *ngIf="updateTelForm.controls['tel'].errors">
+                    Insira um telefone válido. 
+                    Somente números.
+                </span>
+             
+                
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="this.updateTelForm.reset()">fechar</button>
+          <button mat-raised-button color="primary" [disabled]="!updateTelForm.valid" type="button" (click)="updateTel()">enviar</button>
+  
+  
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="modalMail" tabindex="-1" role="dialog" aria-labelledby="mailModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="d-flex flex-row-reverse">
+            <div class="col-2 p-2">
+                
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeMail">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+        </div>
+        <div class="col-md-12">
+          <h3 class="primario d-flex justify-content-center mt-1" id="mailModalLabel">Alteração de mail</h3>
+          
+        </div>
+        <div class="col-12 ">
+            <form [formGroup]="updateMailForm"  >               
+                       
+                <div class="row d-flex justify-content-center" >
+
+                    
+                        
+                        <mat-form-field appearance="outline" class="formMail">
+                            <mat-label>Senha</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" formControlName="pass" >
+                            <i mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </i>
+                        </mat-form-field>
+                    </div>
+                
+                <div class="row d-flex justify-content-center" >
+
+                    <mat-form-field appearance="outline" class="formMail">
+                        <mat-label>e-mail</mat-label>
+                        <input matInput type="mail" formControlName="mail" >
+                        
+                    </mat-form-field>
+                </div>
+                    
+             
+                
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="this.updateMailForm.reset()">fechar</button>
+          <button mat-raised-button color="primary" [disabled]="!updateMailForm.valid" type="button" (click)="updateMail()" >enviar</button>
+  
+  
+        </div>
+      </div>
+    </div>
+  </div>

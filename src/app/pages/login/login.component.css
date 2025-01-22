@@ -1,0 +1,135 @@
+.main {
+    width: 100%;
+    height: 95vh;
+    padding-bottom: 1rem;
+    background-color: #066494;
+}
+
+.rio {
+    text-align: right;
+    background-color: #ffffff;
+}
+
+.ancora {
+    text-align: right;
+    display: block;
+    padding-top: 15px
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.header {
+    color: white;
+    background-color: #105A95;
+    width: 100%;
+    height: 10px;
+    justify-content: right;
+    text-align: right;
+}
+
+.mat-flat-button {
+    height: 30px;
+    width: 120px;
+}
+.mat-mdc-text-field-wrapper .mdc-text-field .ng-tns-c1205077789-1 .mdc-text-field--filled{
+    background: #e8f1f2 !important;
+}
+.page {
+    flex-direction: column;
+    box-sizing: border-box;
+    display: flex;
+    place-content: center space-around;
+    align-items: center;
+    background-color: #e8f1f2;
+    border-radius: 10px;
+    width: 20rem;
+    height: auto;
+    padding: 20px 20px 20px 20px;
+    margin: 40 auto;
+}
+
+a {
+    color: black;
+}
+
+a :before {
+    color: black;
+}
+
+#logoLogin {
+    width: 10rem;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+i{
+    margin-right: 1rem;
+}
+
+button{
+    width:16rem
+}
+
+mat-form-field{
+    width:16rem
+}
+
+.formFild {
+    display: block;
+}
+
+footer {
+    padding: 8 1 1 1;
+}
+@media (max-height: 768px) {
+    .page {
+        flex-direction: column;
+        box-sizing: border-box;
+        display: flex;
+        place-content: center space-around;
+        align-items: center;
+        background-color: #e8f1f2;
+        border-radius: 10px;
+        width: 20rem;
+        height: auto;
+        padding: 5 5 5 5 5;
+        margin: 20 auto;
+    }
+    #logoLogin {
+        width: 9rem;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+}
+@media (max-height: 600px) {
+    .main {
+        width: 100%;
+        height: auto;
+        padding-bottom: 1rem ;
+        background-color: #066494;
+    }
+    .page {
+        flex-direction: column;
+        box-sizing: border-box;
+        display: flex;
+        place-content: center space-around;
+        align-items: center;
+        background-color: #e8f1f2;
+        border-radius: 10px;
+        width: 20rem;
+        height: auto;
+        padding: 5 5 5 5 5;
+        margin: 20 auto;
+    }
+    
+#logoLogin {
+    width: 8rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+}

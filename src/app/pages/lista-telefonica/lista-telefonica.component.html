@@ -1,0 +1,40 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<h1 class="primario">LISTA TELEFÔNICA</h1>
+<div class="filter">
+
+    <input id="filter" type="text " name="filter " (keyup)="applyFilter($event)" placeholder="Filtre os resultados">
+</div> 
+<div class="scroll">
+
+<div class="mat-elevation-z8">
+
+    <table mat-table [dataSource]="dataSource ">
+        <ng-container matColumnDef="ramal">
+            <th mat-header-cell *matHeaderCellDef> Ramal </th>
+            <td mat-cell *matCellDef="let element "> {{element.ramal}} </td>
+        </ng-container>
+        <ng-container matColumnDef="responsavel" >
+            <th mat-header-cell *matHeaderCellDef> Responsável </th>
+            <td mat-cell *matCellDef="let element "  class="pointer"> {{element.responsavel}} </td>
+        </ng-container>
+        <ng-container matColumnDef="localizacao">
+            <th mat-header-cell *matHeaderCellDef > Localização </th>
+            <td mat-cell *matCellDef="let element "> {{element.localizacao}} </td>
+        </ng-container>
+        <ng-container matColumnDef="orgao">
+            <th mat-header-cell *matHeaderCellDef>Órgão </th>
+            <td mat-cell *matCellDef="let element "> {{element.orgao}} </td>
+        </ng-container>
+        <ng-container matColumnDef="setor">
+            <th mat-header-cell *matHeaderCellDef>Setor </th>
+            <td mat-cell *matCellDef="let element "> {{element.setor}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns "></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[10, 20, 100] " showFirstLastButtons aria-label="lista telefônica">
+    </mat-paginator>
+</div>
+</div>
