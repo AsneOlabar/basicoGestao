@@ -23,12 +23,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { RecoveryComponent } from '../recovery/recovery.component';
+import { FichaCadastralComponent } from './ficha-cadastral/ficha-cadastral.component';
 
 
 
 
 @NgModule({
-  declarations: [HomeComponent, ListaTelefonicaComponent, RecoveryComponent],
+  declarations: [HomeComponent, ListaTelefonicaComponent, RecoveryComponent, FichaCadastralComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
